@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="labs.athomsites.com/athomsiteslogo.png" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <title>Node Creative</title>
+</head>
+
+<body>
+    <!-- navigation bar; should be on all pages -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://athomsites.com">athom sites</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav navbar-right ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Recipe Ingredient Parser</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <var id="app">
+        <h3>See All of the Utah Cities that Start With...</h3>
+        <form v-on:keyup.prevent="fetchREST">
+            <input type="text" v-model="prefix" placeholder="Put some letters here">
+            <!--<input type="submit" value="Submit">-->
+        </form>
+        <ul>
+            <li v-for="item in cities">
+                {{item.name}}
+            </li>
+        </ul>
+        
+        <h3>Put in a Word You Want Defined</h3>
+        <form v-on:submit.prevent="owlREST">
+            <input type="text" v-model="owlform" placeholder="Word to Define...">
+            <input class="submit" type="submit" value="Submit">
+        </form>
+        <ul>
+            <li v-for="item in definition">
+                Type: {{item.type}} <br>
+                Definition: {{item.definition}} <br>
+                Example: {{item.example}} 
+            </li>
+        </ul>
+    </var>
+
+    <!-- footer (must be on all pages) -->
+    <footer>
+        <div class="f-container">
+            <div id="github-link-cont">
+                <a href="https://github.com/BYUCS260/lab-4-node-alyssathomason" id="github-link">GitHub:
+                    BYUCS260/lab-4-node-alyssathomason</a>
+            </div>
+            <div id="linkedin-link-cont">
+                <a href="https://www.linkedin.com/in/alyssa-thomason/" id="linkedin-link">LinkedIn: Alyssa Thomason</a>
+            </div>
+            <br>
+            <p class="copyright"> © 2019 Alyssa Thomason, Inc.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="javascripts/script.js"></script>
+</body>
+
+</html>
